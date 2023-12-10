@@ -5,13 +5,13 @@ import fr.imt.coffee.machine.exception.CannotMakeCremaWithSimpleCoffeeMachine;
 import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
 import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
 import fr.imt.coffee.machine.exception.MachineNotPluggedException;
-import fr.imt.coffee.storage.cupboard.FabricCupboardContainer;
-import fr.imt.coffee.storage.cupboard.coffee.type.CoffeeType;
-import fr.imt.coffee.storage.cupboard.container.Container;
-import fr.imt.coffee.storage.cupboard.container.Cup;
-import fr.imt.coffee.storage.cupboard.container.Mug;
-import fr.imt.coffee.storage.cupboard.exception.CupNotEmptyException;
-import fr.imt.coffee.storage.cupboard.exception.ExceptionContainerCreation;
+import fr.imt.coffee.cupboard.FabricCupboardContainer;
+import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.cupboard.container.Container;
+import fr.imt.coffee.cupboard.container.Cup;
+import fr.imt.coffee.cupboard.container.Mug;
+import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
+import fr.imt.coffee.cupboard.exception.ExceptionContainerCreation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +33,7 @@ public class MainCoffee {
 
         coffeeMachine.plugToElectricalPlug();
         coffeeMachine.addWaterInTank(2);
-        coffeeMachine.addCoffeeInBeanTank(1.5,CoffeeType.ROBUSTA);
+        coffeeMachine.addCoffeeInBeanTank(1.5,fr.imt.coffee.cupboard.coffee.type.CoffeeType.ROBUSTA);
 
         logger.info(coffeeMachine.toString());
 

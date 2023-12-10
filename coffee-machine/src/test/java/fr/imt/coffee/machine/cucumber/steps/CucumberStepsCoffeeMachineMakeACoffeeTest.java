@@ -1,13 +1,13 @@
 package fr.imt.coffee.machine.cucumber.steps;
 
+import fr.imt.coffee.cupboard.container.*;
 import fr.imt.coffee.machine.CoffeeMachine;
 import fr.imt.coffee.machine.exception.CannotMakeCremaWithSimpleCoffeeMachine;
 import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
 import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
 import fr.imt.coffee.machine.exception.MachineNotPluggedException;
-import fr.imt.coffee.storage.cupboard.coffee.type.CoffeeType;
-import fr.imt.coffee.storage.cupboard.container.*;
-import fr.imt.coffee.storage.cupboard.exception.CupNotEmptyException;
+import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -54,7 +54,7 @@ public class CucumberStepsCoffeeMachineMakeACoffeeTest {
 
     @And("I add {double} liter of {string} in the bean tank")
     public void iAddLitersOfCoffeeBeans(double beanVolume, String coffeeType) {
-        coffeeMachine.addCoffeeInBeanTank(beanVolume, CoffeeType.valueOf(coffeeType));
+        coffeeMachine.addCoffeeInBeanTank(beanVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType.valueOf(coffeeType));
     }
 
     @And("I made a coffee {string}")

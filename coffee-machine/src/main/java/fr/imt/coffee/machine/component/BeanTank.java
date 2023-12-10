@@ -1,10 +1,10 @@
 package fr.imt.coffee.machine.component;
 
-import fr.imt.coffee.storage.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
 
 public class BeanTank extends Tank{
 
-    private CoffeeType beanCoffeeType;
+    private fr.imt.coffee.cupboard.coffee.type.CoffeeType beanCoffeeType;
     /**
      * Réservoir de graines de café de la cafetière
      *
@@ -18,7 +18,7 @@ public class BeanTank extends Tank{
         this.beanCoffeeType = beanCoffeeType;
     }
 
-    public void increaseCoffeeVolumeInTank(double coffeeVolume, CoffeeType coffeeType){
+    public void increaseCoffeeVolumeInTank(double coffeeVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType coffeeType){
         this.increaseVolumeInTank(coffeeVolume);
         this.beanCoffeeType = coffeeType;
     }

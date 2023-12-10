@@ -1,13 +1,18 @@
 package fr.imt.coffee.machine;
 
+import fr.imt.coffee.cupboard.container.CoffeeContainer;
+import fr.imt.coffee.cupboard.container.CoffeeCup;
+import fr.imt.coffee.cupboard.container.Mug;
+import fr.imt.coffee.cupboard.container.CoffeeMug;
+import fr.imt.coffee.cupboard.container.Container;
+import fr.imt.coffee.cupboard.container.Cup;
 import fr.imt.coffee.machine.component.BeanTank;
 import fr.imt.coffee.machine.component.SteamPipe;
 import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
 import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
 import fr.imt.coffee.machine.exception.MachineNotPluggedException;
-import fr.imt.coffee.storage.cupboard.coffee.type.CoffeeType;
-import fr.imt.coffee.storage.cupboard.container.*;
-import fr.imt.coffee.storage.cupboard.exception.CupNotEmptyException;
+import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
 
 public class EspressoCoffeeMachine extends CoffeeMachine{
 

@@ -1,6 +1,6 @@
-package fr.imt.coffee.storage.cupboard.container;
+package fr.imt.coffee.cupboard.container;
 
-import fr.imt.coffee.storage.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
 
 public class CoffeeCup extends CoffeeContainer{
     public CoffeeCup(double capacity, CoffeeType coffeeType) {
