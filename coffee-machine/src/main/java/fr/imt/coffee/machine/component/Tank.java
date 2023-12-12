@@ -13,7 +13,7 @@ public class Tank {
      */
     public Tank(double initialVolume, double minVolume, double maxVolume){
         this.maxVolume = maxVolume;
-        this.minVolume = maxVolume;
+        this.minVolume = minVolume;
         this.actualVolume = initialVolume;
     }
 
@@ -22,6 +22,11 @@ public class Tank {
      * @param volumeToDecrease Volume de matière à enlever dans le réservoir
      */
     public void decreaseVolumeInTank(double volumeToDecrease){
+        if(volumeToDecrease<0){
+            throw new IllegalArgumentException("Le volume à réduire ne peut pas être négtif");
+        }else if(volumeToDecrease>actualVolume-minVolume){
+            throw new IllegalArgumentException("Le volume à réduire ne peut pas être supérieur au volume qui peut l'être");
+        }
         this.actualVolume -= volumeToDecrease;
     }
 
@@ -30,6 +35,11 @@ public class Tank {
      * @param volumeToIncrease Volume de matière à ajouter dans le réservoir
      */
     public void increaseVolumeInTank(double volumeToIncrease){
+        if(volumeToIncrease<0){
+            throw new IllegalArgumentException("Le volume à ajouter ne peut pas être négtif");
+        }else if(volumeToIncrease>maxVolume-actualVolume){
+            throw new IllegalArgumentException("Le volume à ajouter ne peut pas être supérieur au volume qui peut l'être");
+        }
         this.actualVolume += volumeToIncrease;
     }
 
