@@ -17,7 +17,6 @@ public class CoffeeGrinder {
 
     /**
      * Moue le volume de café spécifié dans le réservoir beanTank
-     * durée du pompage : (volume en L / débit de la pompe en L/seconde) * 1000 pour les ms * 2
      * @param beanTank Réservoir de café
      * @return Temps pour moudre le café
      * @throws InterruptedException Exception levée en cas de problèmes lors du sleep par le Thread

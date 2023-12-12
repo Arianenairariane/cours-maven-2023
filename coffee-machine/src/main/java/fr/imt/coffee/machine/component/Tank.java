@@ -22,7 +22,7 @@ public class Tank {
      * @param volumeToDecrease Volume de matière à enlever dans le réservoir
      */
     public void decreaseVolumeInTank(double volumeToDecrease){
-        this.actualVolume += volumeToDecrease;
+        this.actualVolume -= volumeToDecrease;
     }
 
     /**
