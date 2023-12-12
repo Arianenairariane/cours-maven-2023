@@ -1,6 +1,7 @@
 package fr.imt.coffee.machine.component;
 
 import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
+import fr.imt.coffee.machine.exception.BeanTypeDifferentOfCoffeeTypeTankException;
 
 public class BeanTank extends Tank{
 
@@ -18,9 +19,12 @@ public class BeanTank extends Tank{
         this.beanCoffeeType = beanCoffeeType;
     }
 
-    public void increaseCoffeeVolumeInTank(double coffeeVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType coffeeType){
-        this.increaseVolumeInTank(coffeeVolume);
-        this.beanCoffeeType = coffeeType;
+    public void increaseCoffeeVolumeInTank(double coffeeVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType coffeeType) throws BeanTypeDifferentOfCoffeeTypeTankException {
+        if(this.getActualVolume()>this.getMinVolume() && coffeeType!=this.beanCoffeeType) {
+            throw new BeanTypeDifferentOfCoffeeTypeTankException("Type de grain différent de celui dans le réservoir, qui n'est pas vide");
+        }
+            this.increaseVolumeInTank(coffeeVolume);
+            this.beanCoffeeType = coffeeType;
     }
     public CoffeeType getBeanCoffeeType() {
         return beanCoffeeType;
@@ -28,5 +32,9 @@ public class BeanTank extends Tank{
 
     public void setBeanCoffeeType(CoffeeType beanCoffeeType) {
         this.beanCoffeeType = beanCoffeeType;
+    }
+
+    public void emptyTank() {
+        decreaseVolumeInTank(getActualVolume()-getMinVolume());
     }
 }

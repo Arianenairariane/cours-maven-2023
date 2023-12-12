@@ -2,10 +2,7 @@ package fr.imt.coffee.machine.cucumber.steps;
 
 import fr.imt.coffee.cupboard.container.*;
 import fr.imt.coffee.machine.CoffeeMachine;
-import fr.imt.coffee.machine.exception.CannotMakeCremaWithSimpleCoffeeMachine;
-import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
-import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
-import fr.imt.coffee.machine.exception.MachineNotPluggedException;
+import fr.imt.coffee.machine.exception.*;
 import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
 import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
 import io.cucumber.java.en.And;
@@ -53,7 +50,7 @@ public class CucumberStepsCoffeeMachineMakeACoffeeTest {
     }
 
     @And("I add {double} liter of {string} in the bean tank")
-    public void iAddLitersOfCoffeeBeans(double beanVolume, String coffeeType) {
+    public void iAddLitersOfCoffeeBeans(double beanVolume, String coffeeType) throws BeanTypeDifferentOfCoffeeTypeTankException {
         coffeeMachine.addCoffeeInBeanTank(beanVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType.valueOf(coffeeType));
     }
 

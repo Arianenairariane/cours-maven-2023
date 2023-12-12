@@ -4,10 +4,7 @@ import fr.imt.coffee.cupboard.coffee.type.CoffeeType;
 import fr.imt.coffee.cupboard.container.*;
 import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
 import fr.imt.coffee.machine.component.*;
-import fr.imt.coffee.machine.exception.CannotMakeCremaWithSimpleCoffeeMachine;
-import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
-import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
-import fr.imt.coffee.machine.exception.MachineNotPluggedException;
+import fr.imt.coffee.machine.exception.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -62,7 +59,7 @@ public class CoffeeMachine {
         this.waterTank.increaseVolumeInTank(waterVolume);
     }
 
-    public void addCoffeeInBeanTank(double coffeeVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType coffeeType){
+    public void addCoffeeInBeanTank(double coffeeVolume, fr.imt.coffee.cupboard.coffee.type.CoffeeType coffeeType) throws BeanTypeDifferentOfCoffeeTypeTankException {
         beanTank.increaseCoffeeVolumeInTank(coffeeVolume, coffeeType);
     }
 

@@ -8,10 +8,7 @@ import fr.imt.coffee.cupboard.container.Mug;
 import fr.imt.coffee.cupboard.exception.CupNotEmptyException;
 import fr.imt.coffee.cupboard.exception.ExceptionContainerCreation;
 import fr.imt.coffee.machine.EspressoCoffeeMachine;
-import fr.imt.coffee.machine.exception.CannotMakeCremaWithSimpleCoffeeMachine;
-import fr.imt.coffee.machine.exception.CoffeeTypeCupDifferentOfCoffeeTypeTankException;
-import fr.imt.coffee.machine.exception.LackOfWaterInTankException;
-import fr.imt.coffee.machine.exception.MachineNotPluggedException;
+import fr.imt.coffee.machine.exception.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,7 +19,7 @@ public class MainEspresso {
     //INFO, WARNING, DEBUG, ERROR...
     public static final Logger logger = LogManager.getLogger(MainEspresso.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BeanTypeDifferentOfCoffeeTypeTankException {
 
         FabricCupboardContainer fabricCupboardContainer = FabricCupboardContainer.getFabricContainerInstance();
         EspressoCoffeeMachine coffeeMachine =

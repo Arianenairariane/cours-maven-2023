@@ -25,7 +25,7 @@ public class CoffeeGrinder {
         logger.info("Grinding time : "  +  grindingTime);
         logger.info("Grinding...");
         Thread.sleep(grindingTime);
-        beanTank.increaseVolumeInTank(0.2);
+        beanTank.emptyTank();
         logger.info("Grinding OK");
         return grindingTime;
     }
