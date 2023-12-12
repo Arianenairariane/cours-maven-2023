@@ -43,7 +43,7 @@ public class EspressoCoffeeMachine extends CoffeeMachine{
      */
     public CoffeeContainer makeACoffee(Container container, CoffeeType coffeeType) throws LackOfWaterInTankException, InterruptedException, MachineNotPluggedException, CupNotEmptyException, CoffeeTypeCupDifferentOfCoffeeTypeTankException {
         if(!isPlugged()){
-            throw new LackOfWaterInTankException("You must plug your coffee machine");
+            throw new MachineNotPluggedException("You must plug your coffee machine.");
         }
 
         if (getWaterTank().getActualVolume() < container.getCapacity()){
@@ -55,7 +55,7 @@ public class EspressoCoffeeMachine extends CoffeeMachine{
         }
 
         if(coffeeType != this.beanTank.getBeanCoffeeType() && coffeeType != this.secondaryBeanTank.getBeanCoffeeType()){
-            throw new CoffeeTypeCupDifferentOfCoffeeTypeTankException("The type of coffee to be made in the cup is different from that in the tank.");
+            throw new CoffeeTypeCupDifferentOfCoffeeTypeTankException("The type of coffee to be made in the cup is different from that in the tanks.");
         }
 
         coffeeMachineFailure();
@@ -65,7 +65,9 @@ public class EspressoCoffeeMachine extends CoffeeMachine{
             return null;
         }
 
+        steamPipe.setOn();
         getElectricalResistance().waterHeating(container.getCapacity());
+        steamPipe.setOff();
         getWaterPump().pumpWater(container.getCapacity(), getWaterTank());
         getCoffeeGrinder().grindCoffee(getBeanTank().getBeanCoffeeType().equals(coffeeType) ? getBeanTank() : secondaryBeanTank);
 
@@ -76,6 +78,8 @@ public class EspressoCoffeeMachine extends CoffeeMachine{
             coffeeContainer = new CoffeeMug((Mug) container, coffeeType);
 
         coffeeContainer.setEmpty(false);
+        int nbCoffeeMade = getNbCoffeeMade();
+        setNbCoffeeMade(nbCoffeeMade+1);
         return coffeeContainer;
     }
 }
