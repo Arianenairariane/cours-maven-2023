@@ -9,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
@@ -17,6 +18,7 @@ import java.util.Random;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class CucumberStepsCoffeeMachineMakeACoffeeTest {
@@ -90,6 +92,11 @@ public class CucumberStepsCoffeeMachineMakeACoffeeTest {
             assertThat(containerWithCoffee, instanceOf(CoffeeCup.class));
 
         assertThat(containerWithCoffee.getCoffeeType(), is(CoffeeType.valueOf(coffeeType)));
+    }
+
+    @Then("the coffee machine is plugged")
+    public void coffeeMachinePlugged(){
+        assertTrue(coffeeMachine.isPlugged());
     }
 
 
